@@ -60,7 +60,7 @@ void pint(stack_t **stack, unsigned int line_no);
 void pop(stack_t **stack, unsigned int line_no);
 void swap(stack_t **stack, unsigned int line_no);
 int isnum(char *str);
-void stack_(stack_t **stack, stack_t *new_);
+void stack(stack_t **stack, stack_t *new_);
 void pall(stack_t **stack, unsigned int line_no);
 void push(stack_t **stack, unsigned int line_no);
 void _div(stack_t **stack, unsigned int line_no);

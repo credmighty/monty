@@ -59,6 +59,7 @@ void opcode(char *command, unsigned int line_no, stack_t **stack)
 	free_stack(stack);
 	exit(EXIT_FAILURE);
 }
+
 #include "monty.h"
 /**
  * free_stack - free the stack and the str input
@@ -86,7 +87,7 @@ void free_stack(stack_t **head)
  */
 void make_buffer(char *file_name)
 {
-	size_t size = 0;
+	int size = 0;
 	FILE *file_input;
 	char *str = NULL;
 	unsigned int line_no = 1;
@@ -101,7 +102,7 @@ void make_buffer(char *file_name)
 	}
 	arg_holder.file = file_input;
 	arg_holder.SQ = 1;
-	while (getline(&str, &size, file_input) != -1)
+	while (fgets(str, size, file_input))
 	{
 		arg_holder.input_str = str;
 		if (*str == '\n')
@@ -119,5 +120,7 @@ void make_buffer(char *file_name)
 		opcode(command, line_no, &stack);
 		line_no++;
 	}
+	free(str);
 	free_stack(&stack);
+	fclose(file_input);
 }

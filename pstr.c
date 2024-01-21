@@ -10,15 +10,10 @@ void pstr(stack_t **stack, unsigned int line_no)
 
 	(void) line_no;
 	current = *stack;
-	while (current != NULL)
+	while (current && current->n > 0 && current->n <= 127)
 	{
-		if (current->n > 0 && isascii(current->n))
-		{
-			printf("%c", current->n);
-			current = current->next;
-		}
-		else
-			break;
+		printf("%c", current->n);
+		current = current->next;
 	}
 	printf("\n");
 }

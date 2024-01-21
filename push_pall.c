@@ -54,26 +54,3 @@ void pall(stack_t **stack, unsigned int line_no)
 		current = current->next;
 	}
 }
-
-/**
- * stack - LIFO/FILO data type
- * @stack: stack of the memory
- * @new_: new element to add
- */
-void stack(stack_t **stack, stack_t *new_)
-{
-	new_->n = atoi(arg_holder.arg);
-	if (*stack == NULL)
-	{
-		new_->prev = NULL;
-		new_->next = NULL;
-		*stack = new_;
-	}
-	else
-	{
-		(*stack)->prev = new_;
-		new_->next = *stack;
-		new_->prev = NULL;
-		*stack = new_;
-	}
-}
